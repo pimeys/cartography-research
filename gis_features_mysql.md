@@ -256,42 +256,45 @@ SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(4.001 4.001)', 4326), 4123
 | Requested | Name                                                                               | Description                                                   | Introduced |
 |-----------|------------------------------------------------------------------------------------|---------------------------------------------------------------|------------|
 | X         | `ST_Area()`                                                                        | Return Polygon or MultiPolygon area                           |            |
+| X         | `ST_Buffer()`                                                                      | Return geometry of points within given distance from geometry |            |
+| X         | `ST_Contains()`                                                                    | Whether one geometry contains another                         |            |
+| X         | `ST_Distance()`                                                                    | The distance of one geometry from another                     |            |
+| X         | `ST_Distance_Sphere()`                                                             | Minimum distance on earth between two geometries              |            |
+| X         | `ST_Envelope()`                                                                    | Return MBR of geometry                                        |            |
+| X         | `ST_GeoHash()`                                                                     | Produce a geohash value                                       |            |
+| X         | `ST_GeomFromGeoJSON()`                                                             | Generate geometry from GeoJSON object                         |            |
+| X         | `ST_Intersection()`                                                                | Return point set intersection of two geometries               |            |
+| X         | `ST_Intersects()`                                                                  | Whether one geometry intersects another                       |            |
+| X         | `ST_IsValid()`                                                                     | Whether a geometry is valid                                   |            |
+| X         | `ST_MakeEnvelope()`                                                                | Rectangle around two points                                   |            |
+| X         | `ST_Transform()`                                                                   | Transform coordinates of geometry                             | 8.0.13     |
+| X         | `ST_Within()`                                                                      | Whether one geometry is within another                        |            |
 |           | `ST_AsBinary()`, `ST_AsWKB()`                                                      | Convert from internal geometry format to WKB                  |            |
 |           | `ST_AsGeoJSON()`                                                                   | Generate GeoJSON object from geometry                         |            |
 |           | `ST_AsText(), ST_AsWKT()`                                                          | Convert from internal geometry format to WKT                  |            |
-| X         | `ST_Buffer()`                                                                      | Return geometry of points within given distance from geometry |            |
 |           | `ST_Buffer_Strategy()`                                                             | Produce strategy option for ST_Buffer()                       |            |
 |           | `ST_Centroid()`                                                                    | Return centroid as a point                                    |            |
 |           | `ST_Collect()`                                                                     | Aggregate spatial values into collection                      | 8.0.24     |
-| X         | `ST_Contains()`                                                                    | Whether one geometry contains another                         |            |
 |           | `ST_ConvexHull()`                                                                  | Return convex hull of geometry                                |            |
 |           | `ST_Crosses()`                                                                     | Whether one geometry crosses another                          |            |
 |           | `ST_Difference()`                                                                  | Return point set difference of two geometries                 |            |
 |           | `ST_Dimension()`                                                                   | Dimension of geometry                                         |            |
 |           | `ST_Disjoint()`                                                                    | Whether one geometry is disjoint from another                 |            |
-| X         | `ST_Distance()`                                                                    | The distance of one geometry from another                     |            |
-| X         | `ST_Distance_Sphere()`                                                             | Minimum distance on earth between two geometries              |            |
 |           | `ST_EndPoint()`                                                                    | End Point of LineString                                       |            |
-| X         | `ST_Envelope()`                                                                    | Return MBR of geometry                                        |            |
 |           | `ST_Equals()`                                                                      | Whether one geometry is equal to another                      |            |
 |           | `ST_ExteriorRing()`                                                                | Return exterior ring of Polygon                               |            |
 |           | `ST_FrechetDistance()`                                                             | The discrete Fréchet distance of one geometry from another    | 8.0.23     |
-| X         | `ST_GeoHash()`                                                                     | Produce a geohash value                                       |            |
 |           | `ST_GeomCollFromText()`, `ST_GeometryCollectionFromText()`, `ST_GeomCollFromTxt()` | Return geometry collection from WKT                           |            |
 |           | `ST_GeomCollFromWKB()`, `ST_GeometryCollectionFromWKB()`                           | Return geometry collection from WKB                           |            |
 |           | `ST_GeometryN()`                                                                   | Return N-th geometry from geometry collection                 |            |
 |           | `ST_GeometryType()`                                                                | Return name of geometry type                                  |            |
-| X         | `ST_GeomFromGeoJSON()`                                                             | Generate geometry from GeoJSON object                         |            |
 |           | `ST_GeomFromText()`, `ST_GeometryFromText()`                                       | Return geometry from WKT                                      |            |
 |           | `ST_GeomFromWKB()`, `ST_GeometryFromWKB()`                                         | Return geometry from WKB                                      |            |
 |           | `ST_HausdorffDistance()`                                                           | The discrete Hausdorff distance of one geometry from another  | 8.0.23     |
 |           | `ST_InteriorRingN()`                                                               | Return N-th interior ring of Polygon                          |            |
-| X         | `ST_Intersection()`                                                                | Return point set intersection of two geometries               |            |
-| X         | `ST_Intersects()`                                                                  | Whether one geometry intersects another                       |            |
 |           | `ST_IsClosed()`                                                                    | Whether a geometry is closed and simple                       |            |
 |           | `ST_IsEmpty()`                                                                     | Whether a geometry is empty                                   |            |
 |           | `ST_IsSimple()`                                                                    | Whether a geometry is simple                                  |            |
-| X         | `ST_IsValid()`                                                                     | Whether a geometry is valid                                   |            |
 |           | `ST_LatFromGeoHash()`                                                              | Return latitude from geohash value                            |            |
 |           | `ST_Latitude()`                                                                    | Return latitude of Point                                      | 8.0.12     |
 |           | `ST_Length()`                                                                      | Return length of LineString                                   |            |
@@ -301,7 +304,6 @@ SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(4.001 4.001)', 4326), 4123
 |           | `ST_LineInterpolatePoints()`                                                       | The points a given percentage along a LineString              | 8.0.24     |
 |           | `ST_LongFromGeoHash()`                                                             | Return longitude from geohash value                           |            |
 |           | `ST_Longitude()`                                                                   | Return longitude of Point                                     | 8.0.12     |
-| X         | `ST_MakeEnvelope()`                                                                | Rectangle around two points                                   |            |
 |           | `ST_MLineFromText()`, `ST_MultiLineStringFromText()`                               | Construct MultiLineString from WKT                            |            |
 |           | `ST_MLineFromWKB()`, `ST_MultiLineStringFromWKB()`                                 | Construct MultiLineString from WKB                            |            |
 |           | `ST_MPointFromText()`, `ST_MultiPointFromText()`                                   | Construct MultiPoint from WKT                                 |            |
@@ -325,9 +327,7 @@ SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(4.001 4.001)', 4326), 4123
 |           | `ST_SwapXY()`                                                                      | Return argument with X/Y coordinates swapped                  |            |
 |           | `ST_SymDifference()`                                                               | Return point set symmetric difference of two geometries       |            |
 |           | `ST_Touches()`                                                                     | Whether one geometry touches another                          |            |
-| X         | `ST_Transform()`                                                                   | Transform coordinates of geometry                             | 8.0.13     |
 |           | `ST_Union()`                                                                       | Return point set union of two geometries                      |            |
 |           | `ST_Validate()`                                                                    | Return validated geometry                                     |            |
-| X         | `ST_Within()`                                                                      | Whether one geometry is within another                        |            |
 |           | `ST_X()`                                                                           | Return X coordinate of Point                                  |            |
 |           | `ST_Y()`                                                                           | Return Y coordinate of Point                                  |            |
