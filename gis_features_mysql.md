@@ -2,7 +2,7 @@
 
 Docs: https://dev.mysql.com/doc/refman/8.0/en/spatial-type-overview.html
 
-Everything works as describer from version 5.7 forwards. No extensions
+Everything works as described from version 5.7 forwards. No extensions
 needed, vanilla MySQL is enough.
 
 ## Types
@@ -59,7 +59,7 @@ CREATE TABLE geom
 Default SRID is 0, which is an infinite flat Cartesian plain. 4326 is
 the same as GPS.
 
-#### Index
+### Index
 
 If needing to `CREATE SPATIAL INDEX` to a geometry column, the column
 must be `NOT NULL` and SRID must be explicitly defined.
@@ -90,8 +90,6 @@ model geom {
 ```
 
 MySQL does not let you to define the length, but we introspect it anyhow...
-
-The spatial index is only used if the indexed column is in a `WHERE` clause. For example the query in the 
 
 #### Storing data
 
@@ -197,7 +195,6 @@ INNER JOIN city
 ON ST_Contains(city.area, user.location);
 ```
 
-
 #### Finding all users in radius
 
 The following query will find all users in a radius of 1000 meters:
@@ -249,7 +246,6 @@ From our GIS poll, transforming to a different SRID:
 ```sql
 SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(4.001 4.001)', 4326), 4123));
 ```
-
 
 ### List of functions
 
