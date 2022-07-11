@@ -23,14 +23,14 @@ needed, vanilla MySQL is enough.
 ```prisma
 model geom {
   id  Int           @id
-  g   Geometry      @srid(4326) @default(Point(1 1))
-  p   Point         @srid(4326) @default(Point(2 1))
-  l   LineString    @srid(4326) @default(LineString(1 1, 1 2)
-  pg  Polygon       @srid(0)    @default(Polygon((1 1, 1 2, 1 1))
-  mp  Point[]       @srid(4326) @default(MultiPoint(1 1, 1 2))
-  mls LineString[]  @srid(4326) @default(MultiLineString((1 1, 1 2), (1 2, 2 3)))
-  mpg Polygon[]     @srid(4326) @default(MultiPolygon((1 1, 1 2, 1 1), (1 1, 1 2, 1 1))
-  gc  Geometry[]    @srid(4326) @default(GeometryCollection(Point(1 1), LineString(1 1, 1 2)))
+  g   Geometry      @srid(4326)
+  p   Point         @srid(4326)
+  l   LineString    @srid(4326)
+  pg  Polygon       @srid(0)
+  mp  Point[]       @srid(4326)
+  mls LineString[]  @srid(4326)
+  mpg Polygon[]     @srid(4326)
+  gc  Geometry[]    @srid(4326)
 
   @@index([p], type: Spatial)
 }
@@ -38,6 +38,8 @@ model geom {
 
 We have to validate the defaults. E.g. a Polygon has to connect
 eventually.
+
+None of the geometry columns can have a default value.
 
 ### Migration
 

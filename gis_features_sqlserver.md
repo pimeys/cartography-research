@@ -62,6 +62,17 @@ CREATE TABLE geom (
 
 The SRID is defined in data insertion.
 
+Compared to MySQL or SQLite, SQL Server does allow one to define
+default values for geometry and geography columns:
+
+```sql
+CREATE TABLE geom (
+  id int IDENTITY PRIMARY KEY ,
+  geog geography DEFAULT geography::STGeomFromText('LineString(1 1, 1 2)', 4326),
+  geom geometry DEFAULT geometry::STGeomFromText('LineString(1 1, 1 2)', 4326)
+);
+```
+
 ### Index
 
 The `CREATE SPATIAL INDEX` documentation is [quite
