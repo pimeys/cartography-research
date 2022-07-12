@@ -116,7 +116,7 @@ VALUES (
 
 It's important to use the functions either from the `geography` or `geometry` namespaces.
 
-#### Selecting data
+### Selecting data
 
 SQL Server doesn't support GeoJSON by default. It is however possible
 to create a function to render the result in the correct format:
